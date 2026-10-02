@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn Flow - Rewards Platform</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #000000; color: #ffffff; display: flex; flex-direction: column; min-height: 100vh; align-items: center; padding: 20px 10px; }
+        
+        /* Header Section */
+        header { width: 100%; max-width: 450px; text-align: left; padding: 15px 10px; font-size: 26px; font-weight: 800; font-style: italic; letter-spacing: 1px; border-bottom: 1px solid #222; text-transform: uppercase; color: #ffffff; }
+        
+        .container { width: 100%; max-width: 450px; padding: 20px 10px; flex: 1; }
+        
+        /* Main Chip/Banner */
+        .welcome-chip { background-color: #0b7a61; color: #ffffff; padding: 12px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(11, 122, 97, 0.3); }
+        .welcome-chip::before { content: '⭐'; margin-right: 10px; font-size: 16px; }
+
+        .section-title { font-size: 18px; color: #888888; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+        /* Task Cards Layout */
+        .task-card { background: #111111; border: 1px solid #222222; padding: 20px; margin-bottom: 18px; border-radius: 16px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.2s, border-color 0.2s; }
+        .task-card:hover { border-color: #0b7a61; transform: translateY(-2px); }
+        .task-card h3 { font-size: 18px; font-weight: 700; color: #ffffff; }
+        .task-card p { font-size: 13px; color: #aaaaaa; line-height: 1.4; }
+        
+        /* Action Buttons */
+        .btn { background-color: #0b7a61; color: white; border: none; padding: 12px 20px; font-size: 14px; font-weight: 700; border-radius: 30px; cursor: pointer; transition: background 0.2s; text-align: center; width: 100%; margin-top: 5px; }
+        .btn:hover { background-color: #09634f; }
+        
+        /* Footer Links for Ad Network Approval */
+        footer { width: 100%; max-width: 450px; text-align: center; padding: 30px 10px 10px 10px; border-top: 1px solid #222; font-size: 12px; color: #555555; margin-top: auto; }
+        footer p { margin-bottom: 10px; }
+        .footer-links { display: flex; justify-content: center; gap: 15px; }
+        .footer-links a { color: #0b7a61; text-decoration: none; font-weight: 600; }
+        .footer-links a:hover { text-decoration: underline; }
+
+        /* Modal Popup System for Dummy clicks */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 20px; z-index: 1000; }
+        .modal-content { background: #111; border: 1px solid #0b7a61; padding: 30px; border-radius: 16px; text-align: center; max-width: 350px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .modal-content h4 { font-size: 20px; margin-bottom: 10px; color: #ffffff; }
+        .modal-content p { font-size: 14px; color: #aaa; margin-bottom: 20px; }
+        .close-btn { background: #222; color: #fff; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <!-- App Name Header -->
+    <header>Earn Flow</header>
+
+    <div class="container">
+        <!-- The Chip Design from your Canva Screenshot -->
+        <div class="welcome-chip">Earn Rewards With Easy Tasks</div>
+
+        <div class="section-title">Available Offerwalls</div>
+
+        <!-- Task Card 1 -->
+        <div class="task-card">
+            <h3>Prime Torox Tasks</h3>
+            <p>Get huge amount of coins by installing apps, playing trending games and finishing easy levels.</p>
+            <button class="btn" onclick="openModal('Torox Offerwall')">Start Offers</button>
+        </div>
+
+        <!-- Task Card 2 -->
+        <div class="task-card">
+            <h3>AdWork Premium Surveys</h3>
+            <p>Share your valuable feedback on fast public surveys and unlock points instantly to your wallet.</p>
+            <button class="btn" onclick="openModal('AdWork Surveys')">Take Survey</button>
+        </div>
+
+        <!-- Task Card 3 -->
+        <div class="task-card">
+            <h3>Quick Video Zone</h3>
+            <p>Watch short sponsored clips and ads to earn instant point rewards effortlessly.</p>
+            <button class="btn" onclick="openModal('Video Rewards')">Watch Ads</button>
+        </div>
+    </div>
+
+    <!-- Legal Pages For Instant Approval -->
+    <footer>
+        <p>&copy; 2026 Earn Flow Platform. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#" onclick="alert('Privacy Policy Page: We protect your data and never share it with third parties.')">Privacy Policy</a>
+            <a href="#" onclick="alert('Terms & Conditions: Users doing fraudulent tasks or using VPN will be permanently banned.')">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- Alert Modal Structure -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <h4 id="modalTitle">Loading System</h4>
+            <p>Offers are syncing with server. Please check back in a few moments!</p>
+            <button class="close-btn" onclick="closeModal()">Okay</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title + " Loading...";
+            document.getElementById('statusModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('statusModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
