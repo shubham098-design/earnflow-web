@@ -147,7 +147,8 @@
                 return;
             }
             // Appends UID safely to player_id parameter without changing your base link
-            const targetUrl = "https://reward-me.eu/64c33f9a-bf05-11f1-a1eb-8a5fb7be40ea" + encodeURIComponent(globalUid);
+            const targetUrl = "https://reward-me.eu/64c33f9a-bf05-11f1-a1eb-8a5fb7be40ea?player_id=" + encodeURIComponent(globalUid);
+
             window.open(targetUrl, '_blank');
         }
 
@@ -158,7 +159,8 @@
                 return;
             }
             // Appends UID safely to aff_sub parameter without changing your base link
-            const targetUrl = "https://trkoffer.net/cl/i/ex1jkk" + encodeURIComponent(globalUid);
+            const targetUrl = "https://trkoffer.net/cl/i/ex1jkk?aff_sub=" + encodeURIComponent(globalUid);
+
             window.open(targetUrl, '_blank');
         }
 
